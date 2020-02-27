@@ -8,6 +8,14 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter as Router, Link, Route} from 'react-router-dom'
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+//Conectando apolo com o graphql
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql'
+});
+
 //Componente que renderiza a barra de Navegação
 function NavBar(){
   return (
@@ -24,17 +32,20 @@ function NavBar(){
 }
 
 // ======================================
-
+//renerizador princial, de acordo com oque foi selecionado
+// na barra de navegação ele renderiza a pagina
 ReactDOM.render(
-	<div>
-        <Router>
-			<NavBar />
-			<main>
-	            <Route exact path="/" component={MainPage} />
-	            <Route path="/Adicionar" component={AddQuestion} />
-	    	</main>
-        </Router>
+  <ApolloProvider client={client}>
+  	<div>
+      <Router>
+  			<NavBar />
+  			<main>
+  	      <Route exact path="/" component={MainPage} />
+  	      <Route path="/Adicionar" component={AddQuestion} />
+  	    </main>
+      </Router>
     </div>,
+  </ApolloProvider>,
 	document.getElementById('root')
 );
 

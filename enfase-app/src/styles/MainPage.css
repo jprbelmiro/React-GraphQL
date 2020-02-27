@@ -1,50 +1,44 @@
-.nav-bar {
-  overflow: hidden;
-  background-color: #333;
+.Outer-Box {
+  background-color: rgb(246,246,239);
+  min-height: 800px;
 }
 
-.nav-bar-itens a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.Inner-Box {
+  background-color: white;
+  padding: 10px;
+  width: 70%;
+  margin-left: 15%;
+  min-height: 600px;
 }
-
-.nav-bar-itens a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.nav-bar-header strong {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
 
 .collapsible {
-  background-color: #777;
+  background-color: #555;
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 80%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.collapsible-button{
   background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 10%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active, .collapsible:hover, .collapsible-button:hover {
+  background-color: #777;
 }
 
 .content {
-  padding: 0 18px;
+  padding: 18px;
   background-color: #f1f1f1;
-  float: inline-start;
 }

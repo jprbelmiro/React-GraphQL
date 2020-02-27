@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `questoesapp`
 --
-USE questoesapp;
+CREATE Database questoesapp;
 -- --------------------------------------------------------
 
 --

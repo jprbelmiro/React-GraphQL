@@ -2,8 +2,14 @@ var express = require('express');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 var mysql = require('mysql');
+const cors = require('cors')
 
+var app = express();
+app.use(cors())
 
+//Schema utilizado pelo GraphQL, será a abstraçao
+//que usaremos para tratar os dados tanto no back
+// quanto no front end
 var schema = buildSchema(`
   type Questao {
     ID: String
@@ -35,6 +41,7 @@ const queryDB = (req, sql, args) => new Promise((resolve, reject) => {
     });
 });
 
+//As consultas com os parametros passado ao SQL
 var root = {
   //Querys:
   getQuestoes: (args, req) => queryDB(req, "select * from QUESTAO").then(data => data),
@@ -45,8 +52,10 @@ var root = {
   deleteQuestao: (args, req) => queryDB(req, "delete from QUESTAO where ID = ?", [args.ID]).then(data => data)
 };
 
-var app = express();
 
+//-----IMPORTANTE:-------
+//Para inicializar o servidor
+//alterar as credenciais abaixo:
 app.use((req, res, next) => {
   req.mysqlDb = mysql.createConnection({
     host     : 'localhost',
@@ -64,6 +73,6 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-app.listen(3309);
+app.listen(4000);
 
-console.log('Running a GraphQL API server at localhost:3309/graphql');
+console.log('Running a GraphQL API server at localhost:4000/graphql');

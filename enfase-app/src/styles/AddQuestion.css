@@ -1,0 +1,20 @@
+.Outer-Box {
+  background-color: rgb(246,246,239);
+  min-height: 800px;
+}
+
+.Inner-Box {
+  background-color: white;
+  padding: 10px;
+  width: 70%;
+  margin-left: 15%;
+  min-height: 600px;
+}
+
+.alternativa {
+	width: 30%;
+}
+
+.pergunta {
+	width: 50%;
+}
