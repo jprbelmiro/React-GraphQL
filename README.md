@@ -1,4 +1,5 @@
 =============COMO INICIALIZAR O SERVIDOR===============
+
 1)Criar o database rodando o script "questoesapp.sql" no mysql
 	$> mysql
 	$> mysql > source $PATH/server/questoesapp.sql
